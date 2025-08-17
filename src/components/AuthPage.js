@@ -146,7 +146,7 @@ const handleSubmit = async (e) => {
     <RadioGroup
   className="flex flex-row gap-3"
   onValueChange={handleRoleChange}
-  defaultValue="user"   // ✅ This selects "User" (option 3) by default
+  defaultValue="user" 
 >
   <Label className="mr-5">Role:</Label>
 

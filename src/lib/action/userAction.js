@@ -1,7 +1,8 @@
 // created user
+const url = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/";
 export async function createUser(userData) {
   try {
-    const res = await fetch("/api/register", {
+    const res = await fetch(`${url}api/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +24,7 @@ export async function createUser(userData) {
 // Check user
 export async function checkUser(loginData) {
   try {
-    const res = await fetch("/api/login", {
+    const res = await fetch(`${url}api/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,9 +46,9 @@ export async function checkUser(loginData) {
 // Fetch user
 export const fetchUser = async (id) => {
   try {
-    const url = id ? `/api/user?id=${id}` : "/api/user";
+    const burl = id ? `${url}api/user?id=${id}` : "/api/user";
 
-    const res = await fetch(url, {
+    const res = await fetch(burl, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -82,7 +83,7 @@ export const logoutUser = () => {
 // Count interns
 export const countInterns = async () => {
   try {
-    const res = await fetch("/api/user", {
+    const res = await fetch(`${url}api/user`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });

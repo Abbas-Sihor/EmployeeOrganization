@@ -1,11 +1,11 @@
 "use server";
 
-const baseUrl = process.env.NEXT_PUBLIC_URL || "http://localhost:3000";
+const baseUrl = process.env.NEXT_PUBLIC_URL || "/";
 
 // CREATE
 export async function createEmployee(employeeData) {
   try {
-    const res = await fetch(`${baseUrl}/api/employee`, {
+    const res = await fetch(`${baseUrl}api/employee`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(employeeData),
@@ -20,7 +20,7 @@ export async function createEmployee(employeeData) {
 // GET all
 export async function getEmployees() {
   try {
-    const res = await fetch(`${baseUrl}/api/employee`, {
+    const res = await fetch(`${baseUrl}api/employee`, {
       method: "GET",
       cache: "no-store",
     });
@@ -34,7 +34,7 @@ export async function getEmployees() {
 // UPDATE
 export async function updateEmployee(id, updates) {
   try {
-    const res = await fetch(`${baseUrl}/api/employee`, {
+    const res = await fetch(`${baseUrl}api/employee`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id, ...updates }),
@@ -49,7 +49,7 @@ export async function updateEmployee(id, updates) {
 // DELETE
 export async function deleteEmployee(id) {
   try {
-    const res = await fetch(`${baseUrl}/api/employee`, {
+    const res = await fetch(`${baseUrl}api/employee`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id }),
@@ -63,7 +63,7 @@ export async function deleteEmployee(id) {
 //EmployeeCount
 export async function getEmployeeCount() {
   try {
-    const res = await fetch(`${baseUrl}/api/employee`, {
+    const res = await fetch(`${baseUrl}api/employee`, {
       method: "GET",
       cache: "no-store",
     });
